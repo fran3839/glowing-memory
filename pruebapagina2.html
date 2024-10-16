@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bienvenido a InnovaClass, donde ofrecemos tareas dirigidas para ayudar a los estudiantes a consolidar sus conocimientos.">
+    <title>Mi Primera Página Web</title>
+    <style>
+        body {
+            background-color: #800080;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+        h1 {
+            font-size: 60px;
+        }
+        h2 {
+            font-size: 28px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+            animation: moveImage 5s infinite alternate; /* Aplicar la animación */
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+        }
+        iframe {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Definición de la animación */
+        @keyframes moveImage {
+            from {
+                transform: translateX(-20px); /* Comienza desplazado a la izquierda */
+            }
+            to {
+                transform: translateX(20px); /* Termina desplazado a la derecha */
+            }
+        }
+
+        /* Estilo para los comentarios */
+        .comment {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="image-container">
+        <img src="innovaclass.jpg" alt="Logo de InnovaClass">
+    </div>
+
+    <h1>¡Gracias por estar aquí!</h1>
+    <p>InnovaClass.</p>
+
+    <section>
+        <h2>Tarea Dirigida</h2>
+        <p>Estas actividades permiten a los estudiantes consolidar y ampliar los conocimientos adquiridos en el aula, proporcionando un espacio para la práctica y la aplicación de lo aprendido.</p>
+
+        <h3>Beneficios de las Tareas Dirigidas</h3>
+        <ul>
+            <li>Atención personalizada.</li>
+            <li>Grupos reducidos.</li>
+            <li>Fomento de un ambiente cómodo.</li>
+        </ul>
+
+        <p>Como lo ayudaremos: Mediantes Atención Personalizada, ofreciendo sesiones en grupos reducidos o individualmente, lo que permite a los educadores centrarse en las necesidades particulares de cada niño.</p>
+    </section>
+
+    <div class="image-container">
+        <img src="inscripciones.jpg" alt="Inscripciones">
+    </div>
+
+    <h2>Video InnovaClass</h2>
+    <iframe src="https://www.youtube.com/embed/HQ40ksM2Vc0" frameborder="0" allowfullscreen></iframe>
+
+    <!-- Sección de Comentarios -->
+    <section>
+        <h2>Deja tu Comentario</h2>
+        <form id="commentForm">
+            <label for="name">Nombre:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="comment">Comentario:</label><br>
+            <textarea id="comment" name="comment" rows="4" required></textarea><br><br>
+
+            <button type="submit">Enviar Comentario</button>
+        </form>
+
+        <h3>Comentarios:</h3>
+        <div id="commentsSection"></div>
+    </section>
+
+    <!-- Script para manejar comentarios -->
+    <script>
+        document.getElementById('commentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
+
+            // Obtener los valores del formulario
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+
+            // Crear un nuevo elemento para el comentario
+            const commentDiv = document.createElement('div');
+            commentDiv.classList.add('comment');
+            commentDiv.innerHTML = `<strong>${name}</strong>: ${comment}`;
+
+            // Agregar el nuevo comentario a la sección de comentarios
+            document.getElementById('commentsSection').appendChild(commentDiv);
+
+            // Limpiar el formulario
+            document.getElementById('commentForm').reset();
+        });
+    </script>
+
+</body>
+</html>
